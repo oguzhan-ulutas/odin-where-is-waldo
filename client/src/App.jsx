@@ -1,14 +1,15 @@
 import { useState } from 'react'
 import './App.css'
+import  Router  from './components/Router'
+import AppContext from "./components/AppContext"
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
-    <>
-      <h1>Helooo</h1>
-       
-    </>
+    <AppContext.Provider>
+      <Router/>    
+    </AppContext.Provider>
   )
 }
 

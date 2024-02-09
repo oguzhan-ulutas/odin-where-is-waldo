@@ -1,8 +1,11 @@
 
 import React from 'react'
+import Header from './Header'
 
 export const Home:React.FC = () => {
   return (
-    <div>Home:React.FC</div>
+    <div className='home-container' >
+        <Header/>
+    </div>
   )
 }

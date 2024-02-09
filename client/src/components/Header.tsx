@@ -1,6 +1,8 @@
 import { FC } from "react";
 import Timer from "./Timer";
 
+import "./Header.css"
+
 const Header:FC = ()=>{
     return (
         <div className="header" >

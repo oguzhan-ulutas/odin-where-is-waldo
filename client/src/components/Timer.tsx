@@ -22,7 +22,7 @@ const Timer:FC = ()=>{
 
       return (
         <div>
-          <h1>Timer: {formatTime(seconds)}</h1>
+          <h2>Timer: {formatTime(seconds)}</h2>
         </div>
       );
 }

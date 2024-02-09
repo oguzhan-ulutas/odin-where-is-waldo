@@ -1,0 +1,36 @@
+.info {
+    color: rgb(28, 40, 36);
+    padding: 20px 50px;
+    background-color: rgb(241, 239, 194);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info p {
+    font-size: 30px;
+    text-align: center;
+}
+
+.image-container div img {
+    width: 80px;
+}
+
+.image-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+.image-unit {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.image-unit p {
+    margin-bottom: 0px;
+}

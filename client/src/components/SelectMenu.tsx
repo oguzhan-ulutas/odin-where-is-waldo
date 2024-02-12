@@ -1,4 +1,4 @@
-import { FC, useState, useContext } from "react";
+import { FC, useState, useContext, useRef, useEffect } from "react";
 import "./SelectMenu.css"
 
 import beardie from "../assets/beardie.png"
@@ -7,8 +7,18 @@ import unibrow from "../assets/unibrow.png"
 import { AppContext } from "../AppContext";
 
 const SelectMenu:FC = ()=>{
-    const {cursorPosition, setCursorPosition} = useContext(AppContext)
+    const {
+        cursorPosition,
+        setCursorPosition,
+        selectionDiv,
+        beardieLocation,
+        squidLocation,
+        uniLocation,
+        score,
+        setScore
+    } = useContext(AppContext)
     const [imgWidth, setImgWidth] = useState<number>(90)
+    
 
     const changeImageWidth = ()=>{
         setImgWidth (85)
@@ -16,14 +26,29 @@ const SelectMenu:FC = ()=>{
             setImgWidth(90)
         }, 100)
       }
-
-
- 
     
+      useEffect(()=>{
+        const divElement = selectionDiv.current
+        if (divElement) {
+            const rect = divElement.getBoundingClientRect()
+            console.log(rect)
+        }
+      },[cursorPosition])
 
+      const checkLocation = (suspect)=>{
+        const name = suspect.name
+        if (
+            cursorPosition.top <= suspect.top
+            && cursorPosition.top >= suspect.bottom 
+            && cursorPosition.left >= suspect.left
+            && cursorPosition.left <= suspect.right
+        ){
+            setScore({...score, name:true})
+        }
+      }
     return (
         <div className="select-container" style={cursorPosition}>
-            <div className="selection"  ></div>
+           <div className="selection" ref={selectionDiv}  ></div> 
             <div className="image-unit-select">
                 <img src={beardie} alt="beardie" style={{width:imgWidth}} onClick={changeImageWidth} />
                 <p>Beardie</p>

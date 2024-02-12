@@ -5,7 +5,11 @@ import SelectMenu from "./SelectMenu";
 import { AppContext } from "../AppContext";
 
 const Body:FC = ()=>{
-    const {cursorPosition, setCursorPosition} = useContext(AppContext)
+    const {
+        cursorPosition,
+        setCursorPosition,
+        
+    } = useContext(AppContext)
     
     
 

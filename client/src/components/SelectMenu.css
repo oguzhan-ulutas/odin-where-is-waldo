@@ -33,9 +33,9 @@
 .selection {
     border: 5px solid red;
     position: absolute;
-    width: 70px;
-    height: 70px;
-    z-index: 3;
-    left:-100px;
+    width: 100px;
+    height: 100px;
+    
+    left:-110px;
     border-radius: 100%;
 }

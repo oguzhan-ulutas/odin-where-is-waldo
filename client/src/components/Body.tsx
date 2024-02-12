@@ -7,10 +7,11 @@ import { AppContext } from "../AppContext";
 const Body:FC = ()=>{
     const {cursorPosition, setCursorPosition} = useContext(AppContext)
     
+    
 
   const changeSelectMenuPosition = (e)=>{
     
-    setCursorPosition({top:`${e.pageY}px`, left:`${e.pageX}px`})
+    setCursorPosition({top:e.pageY - 50, left:e.pageX + 50})
     console.log(cursorPosition)
   }
 

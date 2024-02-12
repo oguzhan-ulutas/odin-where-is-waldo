@@ -6,9 +6,9 @@ import { AppContext } from './AppContext'
 
 function App() {
   const [cursorPosition, setCursorPosition] = useState<{
-    top: string;
-    left: string;
-}>({top:"0px", left:"0px"})
+    top: number;
+    left: number;
+}>({top:-1000, left:0})
   
 
   return (

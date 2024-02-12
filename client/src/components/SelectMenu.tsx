@@ -15,6 +15,7 @@ const SelectMenu:FC = ()=>{
 
     return (
         <div className="select-container" style={cursorPosition}>
+            <div className="selection"  ></div>
             <div className="image-unit-select">
                 <img src={beardie} alt="beardie" />
                 <p>Beardie</p>

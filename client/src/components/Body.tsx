@@ -9,8 +9,7 @@ const Body:FC = ()=>{
     
     
 
-  const changeSelectMenuPosition = (e)=>{
-    
+  const changeSelectMenuPosition = (e)=>{  
     setCursorPosition({top:e.pageY - 50, left:e.pageX + 50})
     console.log(cursorPosition)
   }

@@ -5,10 +5,17 @@ import Router from './Router'
 import { AppContext } from './AppContext'
 
 function App() {
+  const [cursorPosition, setCursorPosition] = useState<{
+    top: string;
+    left: string;
+}>({top:"0px", left:"0px"})
   
 
   return (
-    <AppContext.Provider value={{}} >
+    <AppContext.Provider value={{
+      cursorPosition,
+      setCursorPosition
+    }} >
       <Router/>
     </AppContext.Provider>
   )

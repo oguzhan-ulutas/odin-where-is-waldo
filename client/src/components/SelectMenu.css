@@ -1,0 +1,23 @@
+.select-container {
+    position: absolute;
+    background-color: rgb(28, 40, 36);
+    color: rgb(241, 239, 194);
+    margin: 0px;
+    padding: 5px;
+    top:100px;
+    left: 100px;
+    
+}
+
+.image-unit-select {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
+}
+
+.image-unit-select img {
+    width: 70px;
+}

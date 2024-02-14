@@ -31,32 +31,44 @@ const SelectMenu:FC = ()=>{
       const checkLocation = (suspect)=>{
         console.log(cursorPosition.top <= suspect.top)
         console.log(cursorPosition.top >= suspect.bottom )
+        console.log(cursorPosition.left >= suspect.left)
+        console.log(cursorPosition.left <= suspect.right)
 
         console.log(cursorPosition.top)
         console.log(suspect)
-        const name = suspect.name
+        const {name} = suspect
+        console.log(name)
         if (
             cursorPosition.top <= suspect.top
             && cursorPosition.top >= suspect.bottom 
             && cursorPosition.left >= suspect.left
             && cursorPosition.left <= suspect.right
         ){
-            setScore({...score, name:true})
+            setScore({...score, [name]:true})
             console.log(score)
         }
       }
     return (
         <div className="select-container" style={cursorPosition}>
            <div className="selection" ref={selectionDiv}  ></div> 
-            <div className="image-unit-select" onClick={()=>{checkLocation(beardieLocation)}}>
+            <div className="image-unit-select" onClick={(e)=>{
+                e.stopPropagation()
+                checkLocation(beardieLocation)
+                }}>
                 <img src={beardie} alt="beardie" style={{width:imgWidth}} onClick={changeImageWidth} />
                 <p>Beardie</p>
                 </div>
-                <div className="image-unit-select" onClick={ checkLocation(squidLocation)} >
+                <div className="image-unit-select" onClick={(e)=>{
+                    e.stopPropagation()
+                    checkLocation(squidLocation)
+                }} >
                 <img src={squidward} alt="squidward" style={{width:imgWidth}} onClick={changeImageWidth} />
                 <p>Squidward</p>
                 </div>
-                <div className="image-unit-select" onClick={()=>{checkLocation(uniLocation)}}>
+                <div className="image-unit-select" onClick={(e)=>{
+                    e.stopPropagation()
+                    checkLocation(uniLocation)
+                }}>
                 <img src={unibrow} alt="unibrow" style={{width:imgWidth}} onClick={changeImageWidth} />
                 <p>Unibrow</p>
                 </div>

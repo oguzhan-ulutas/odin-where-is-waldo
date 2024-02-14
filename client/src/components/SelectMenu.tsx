@@ -18,7 +18,6 @@ const SelectMenu:FC = ()=>{
         setScore
     } = useContext(AppContext)
     const [imgWidth, setImgWidth] = useState<number>(90)
-    
 
     const changeImageWidth = ()=>{
         setImgWidth (85)
@@ -27,15 +26,14 @@ const SelectMenu:FC = ()=>{
         }, 100)
       }
     
-      useEffect(()=>{
-        const divElement = selectionDiv.current
-        if (divElement) {
-            const rect = divElement.getBoundingClientRect()
-            console.log(rect)
-        }
-      },[cursorPosition])
+      
 
       const checkLocation = (suspect)=>{
+        console.log(cursorPosition.top <= suspect.top)
+        console.log(cursorPosition.top >= suspect.bottom )
+
+        console.log(cursorPosition.top)
+        console.log(suspect)
         const name = suspect.name
         if (
             cursorPosition.top <= suspect.top
@@ -44,20 +42,21 @@ const SelectMenu:FC = ()=>{
             && cursorPosition.left <= suspect.right
         ){
             setScore({...score, name:true})
+            console.log(score)
         }
       }
     return (
         <div className="select-container" style={cursorPosition}>
            <div className="selection" ref={selectionDiv}  ></div> 
-            <div className="image-unit-select">
+            <div className="image-unit-select" onClick={()=>{checkLocation(beardieLocation)}}>
                 <img src={beardie} alt="beardie" style={{width:imgWidth}} onClick={changeImageWidth} />
                 <p>Beardie</p>
                 </div>
-                <div className="image-unit-select">
+                <div className="image-unit-select" onClick={ checkLocation(squidLocation)} >
                 <img src={squidward} alt="squidward" style={{width:imgWidth}} onClick={changeImageWidth} />
                 <p>Squidward</p>
                 </div>
-                <div className="image-unit-select">
+                <div className="image-unit-select" onClick={()=>{checkLocation(uniLocation)}}>
                 <img src={unibrow} alt="unibrow" style={{width:imgWidth}} onClick={changeImageWidth} />
                 <p>Unibrow</p>
                 </div>

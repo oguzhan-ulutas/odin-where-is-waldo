@@ -27,6 +27,7 @@ const [squid, setSquid]= useState({ name:"squid", top:1578, bottom:1508, left:93
 const [uni, setUni] = useState({name:"uni", top:1235, bottom:1165, left:351, right:421, filter:"grayScale(0%)", pointerEvents:"auto"})
 
 const [score, setScore] = useState({beardie:false, squid:false, uni:false})
+const [seconds, setSeconds] = useState<number>(0)
 
 
   
@@ -44,6 +45,8 @@ const [score, setScore] = useState({beardie:false, squid:false, uni:false})
       setUni,
       score,
       setScore,
+      seconds,
+      setSeconds
      
     }} >
       <Router/>

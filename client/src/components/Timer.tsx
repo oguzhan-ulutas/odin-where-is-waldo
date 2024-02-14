@@ -1,7 +1,9 @@
-import { FC, useState, useEffect } from "react";
+import { FC, useState, useEffect, useContext } from "react";
+import { AppContext } from "../AppContext";
 
 const Timer:FC = ()=>{
-    const [seconds, setSeconds] = useState<number>(0)
+    
+  const {seconds, setSeconds} = useContext(AppContext)
 
     useEffect(() => {
         // Update the timer every second

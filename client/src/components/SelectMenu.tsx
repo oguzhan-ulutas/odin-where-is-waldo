@@ -1,7 +1,7 @@
 import { FC, useState, useContext, useRef, useEffect } from "react";
 import "./SelectMenu.css"
 
-import beardie from "../assets/beardie.png"
+import beardieImg from "../assets/beardie.png"
 import squidward from "../assets/squidward.png"
 import unibrow from "../assets/unibrow.png"
 import { AppContext } from "../AppContext";
@@ -11,11 +11,15 @@ const SelectMenu:FC = ()=>{
         cursorPosition,
         setCursorPosition,
         selectionDiv,
-        beardieLocation,
-        squidLocation,
-        uniLocation,
+        beardie,
+        setBeardie,
+        squid,
+        setSquid,
+        uni,
+        setUni,
         score,
-        setScore
+        setScore,
+    
     } = useContext(AppContext)
     const [imgWidth, setImgWidth] = useState<number>(90)
 
@@ -29,13 +33,6 @@ const SelectMenu:FC = ()=>{
       
 
       const checkLocation = (suspect)=>{
-        console.log(cursorPosition.top <= suspect.top)
-        console.log(cursorPosition.top >= suspect.bottom )
-        console.log(cursorPosition.left >= suspect.left)
-        console.log(cursorPosition.left <= suspect.right)
-
-        console.log(cursorPosition.top)
-        console.log(suspect)
         const {name} = suspect
         console.log(name)
         if (
@@ -46,28 +43,47 @@ const SelectMenu:FC = ()=>{
         ){
             setScore({...score, [name]:true})
             console.log(score)
+            if (name==="beardie"){
+                setBeardie({...beardie, filter:"grayScale(100%)", pointerEvents:"none"})
+            } 
+
+            if (name==="squid"){
+                setSquid({...squid, filter:"grayScale(100%)", pointerEvents:"none"})
+            } 
+
+            if (name==="uni"){
+                setUni({...uni, filter:"grayScale(100%)", pointerEvents:"none"})
+            } 
         }
       }
     return (
         <div className="select-container" style={cursorPosition}>
            <div className="selection" ref={selectionDiv}  ></div> 
-            <div className="image-unit-select" onClick={(e)=>{
+            <div className="image-unit-select"
+            style={{filter:beardie.filter, pointerEvents:beardie.pointerEvents}}
+            onClick={(e)=>{
                 e.stopPropagation()
-                checkLocation(beardieLocation)
+                checkLocation(beardie)
                 }}>
-                <img src={beardie} alt="beardie" style={{width:imgWidth}} onClick={changeImageWidth} />
+                <img src={beardieImg} alt="beardie" style={{width:imgWidth}} onClick={changeImageWidth} />
                 <p>Beardie</p>
                 </div>
-                <div className="image-unit-select" onClick={(e)=>{
+                <div
+                 style={{filter:squid.filter, pointerEvents:squid.pointerEvents}}
+                 className="image-unit-select" 
+                 onClick={(e)=>{
                     e.stopPropagation()
-                    checkLocation(squidLocation)
+                    checkLocation(squid)
                 }} >
                 <img src={squidward} alt="squidward" style={{width:imgWidth}} onClick={changeImageWidth} />
                 <p>Squidward</p>
                 </div>
-                <div className="image-unit-select" onClick={(e)=>{
+                <div 
+                style={{filter:uni.filter, pointerEvents:uni.pointerEvents}}
+                className="image-unit-select"
+                onClick={(e)=>{
                     e.stopPropagation()
-                    checkLocation(uniLocation)
+                    checkLocation(uni)
                 }}>
                 <img src={unibrow} alt="unibrow" style={{width:imgWidth}} onClick={changeImageWidth} />
                 <p>Unibrow</p>

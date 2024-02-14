@@ -16,10 +16,12 @@
     align-items: center;
     margin: 0px;
     padding: 5px;
+    cursor: pointer;
 }
 
 .image-unit-select img {
     width: 90px;
+    
 }
 
 .image-unit-select:hover {

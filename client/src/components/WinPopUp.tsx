@@ -11,7 +11,10 @@ import { AppContext } from '../AppContext';
 const WinPopUp = ()=>{
     const {
         seconds,
-        time
+        time,
+        win,
+        baseUrl,
+        setLeaders
     } = React.useContext(AppContext)
     const [open, setOpen] = React.useState(false);
 
@@ -23,11 +26,14 @@ const WinPopUp = ()=>{
     setOpen(false);
   };
 
+  React.useEffect(()=>{
+    if (win) {
+        setOpen(true)
+    }
+  }, [win])
+
   return (
     <React.Fragment>
-      <Button variant="outlined" onClick={handleClickOpen}>
-        Open form dialog
-      </Button>
       <Dialog
         open={open}
         onClose={handleClose}
@@ -35,11 +41,27 @@ const WinPopUp = ()=>{
           component: 'form',
           onSubmit: (event) => {
             event.preventDefault();
-            const formData = new FormData(event.currentTarget);
+            const formData = new FormData(event.target);
             const formJson = Object.fromEntries(formData.entries());
-            const email = formJson.email;
-            console.log(email);
-            handleClose();
+            const data = formJson;
+            console.log(data);
+            fetch(`${baseUrl}/win`,{
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                  },
+                body:JSON.stringify(data)
+            }).then((res)=>{
+                if (res.status >= 400) {
+                    throw new Error("server error");
+                  }
+                  return res.json();
+            }). then((res)=>{
+                setLeaders(res.leaderBoard)
+            }).catch((err)=>{
+                console.log("Fetch error in home", err)
+              })
+             handleClose();
           },
         }}
       >
@@ -62,8 +84,8 @@ const WinPopUp = ()=>{
           <TextField
           value={seconds}
             margin="dense"
-            id="second"
-            name="second"
+            id="seconds"
+            name="seconds"
             type="number"
             fullWidth
             variant="standard"

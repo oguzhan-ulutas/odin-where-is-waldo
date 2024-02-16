@@ -8,3 +8,19 @@ exports.index = asyncHandler(async (req, res, next) => {
 
   res.json({ leaderBoard });
 });
+
+// Player win
+exports.winPost = asyncHandler(async (req, res, next) => {
+  const newWinner = new Player(req.body);
+
+  // If winner has a name save it.
+  if (newWinner.name !== '') {
+    await newWinner.save();
+  } else {
+    return next();
+  }
+
+  // Get all leader board and send it.
+  const leaderBoard = await Player.find({}).sort({ seconds: 1 });
+  res.json({ leaderBoard });
+});

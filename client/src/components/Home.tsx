@@ -29,8 +29,11 @@ export const Home:React.FC = () => {
       return res.json();
     })
     .then((res)=>{
-      console.log(res)
+      
       setLeaders(res.leaderBoard)
+    })
+    .catch((err)=>{
+      console.log("Fetch error in home", err)
     })
    }, [])
   return (

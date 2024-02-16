@@ -1,5 +1,5 @@
 
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import Header from './Header'
 import Footer from './Footer'
 import Body from './Body'
@@ -7,9 +7,31 @@ import LeaderBoard from "./LeaderBoard"
 
 import "./Home.css"
 import Info from './Info'
+import { AppContext } from '../AppContext'
 
 export const Home:React.FC = () => {
-    console.log("hello home")
+   const {
+    leaders,
+    setLeaders,
+    baseUrl
+   } = useContext(AppContext)
+   
+   
+
+   // Fetch leader board data on load
+   useEffect(()=>{
+    fetch(baseUrl)
+    .then((res) => {
+      console.log(res)
+      if (res.status >= 400) {
+        throw new Error("server error");
+      }
+      return res.json();
+    })
+    .then((res)=>{
+      console.log(res)
+    })
+   }, [])
   return (
     <div className='home-container' >
         <Header/>

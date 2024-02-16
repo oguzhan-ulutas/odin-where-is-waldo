@@ -30,7 +30,7 @@ const LeaderBoard = ()=>{
        <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
-          <TableRow>
+          <TableRow key="header">
             <TableCell>Rank</TableCell>
             <TableCell align="left">Name</TableCell>
             <TableCell align="left">Time</TableCell>

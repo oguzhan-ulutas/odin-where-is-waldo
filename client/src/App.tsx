@@ -36,6 +36,7 @@ const [leaders, setLeaders] = useState([{
   time: '33:20',
   _id: '65ccf7ca140d7f5bbda8d85b'
 }])
+const baseUrl = import.meta.env.VITE_BASE_URL;
 
 
 
@@ -54,7 +55,8 @@ const [leaders, setLeaders] = useState([{
       seconds,
       setSeconds,
       leaders,
-      setLeaders
+      setLeaders,
+      baseUrl
      
     }} >
       <Router/>

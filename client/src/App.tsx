@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import './App.css'
 
 import Router from './Router'
@@ -18,8 +18,23 @@ const [uni, setUni] = useState({name:"uni", top:1235, bottom:1165, left:351, rig
 
 const [score, setScore] = useState({beardie:false, squid:false, uni:false})
 const [seconds, setSeconds] = useState<number>(0)
+const [time, setTime] = useState("")
 const [leaders, setLeaders] = useState([])
 const baseUrl = import.meta.env.VITE_BASE_URL;
+const [win, setWin] = useState(false)
+
+// Set win on finding of all suspect
+useEffect(()=>{
+  console.log(score)
+  if (
+    score.beardie === true
+    && score.squid === true
+    && score.uni === true
+  ){
+    setWin(true)
+    console.log("win", win)
+  }
+},[ score])
 
 
 
@@ -39,7 +54,12 @@ const baseUrl = import.meta.env.VITE_BASE_URL;
       setSeconds,
       leaders,
       setLeaders,
-      baseUrl
+      baseUrl,
+      time,
+      setTime,
+      win,
+      setWin
+      
      
     }} >
       <Router/>

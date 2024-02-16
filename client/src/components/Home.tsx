@@ -8,6 +8,7 @@ import LeaderBoard from "./LeaderBoard"
 import "./Home.css"
 import Info from './Info'
 import { AppContext } from '../AppContext'
+import WinPopUp from './WinPopUp'
 
 export const Home:React.FC = () => {
    const {
@@ -39,6 +40,7 @@ export const Home:React.FC = () => {
         <Body/>
         <LeaderBoard/>
         <Footer/>
+        <WinPopUp/>
     </div>
   )
 }

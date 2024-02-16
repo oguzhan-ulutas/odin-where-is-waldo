@@ -4,22 +4,12 @@ import './App.css'
 import Router from './Router'
 import { AppContext } from './AppContext'
 
-interface Suspect {
-  name:string;
-  top: number;
-  bottom:number;
-  left: number;
-  right:number;
-  filter:string;
-  pointerEvents:string;
-}
-
 function App() {
   const [cursorPosition, setCursorPosition] = useState<{
     top: number;
     left: number;
 }>({top:-1000, left:0})
-const selectionDiv = useRef<HTMLDivElement>(null)
+
 
 // Add and subtract 35px of the suspects location
 const [beardie, setBeardie ] = useState({name:"beardie", top:1149, bottom:1079, left:639, right:709, filter:"grayScale(0%)", pointerEvents:"auto"})
@@ -28,15 +18,31 @@ const [uni, setUni] = useState({name:"uni", top:1235, bottom:1165, left:351, rig
 
 const [score, setScore] = useState({beardie:false, squid:false, uni:false})
 const [seconds, setSeconds] = useState<number>(0)
+const [leaders, setLeaders] = useState([{
+  name: 'Supermen',
+  seconds: 300,
+  time: '5:00',
+  _id: '65ccf7ca140d7f5bbda8d859'
+},
+{
+  name: 'Spidermen',
+  seconds: 4000,
+  time: '66:40',
+  _id: '65ccf7ca140d7f5bbda8d85a'
+},
+{
+  name: 'Captain America',
+  seconds: 2000,
+  time: '33:20',
+  _id: '65ccf7ca140d7f5bbda8d85b'
+}])
 
 
-  
 
   return (
     <AppContext.Provider value={{
       cursorPosition,
       setCursorPosition,
-      selectionDiv,
       beardie,
       setBeardie,
       squid,
@@ -46,7 +52,9 @@ const [seconds, setSeconds] = useState<number>(0)
       score,
       setScore,
       seconds,
-      setSeconds
+      setSeconds,
+      leaders,
+      setLeaders
      
     }} >
       <Router/>

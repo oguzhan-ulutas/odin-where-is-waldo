@@ -10,7 +10,6 @@ const SelectMenu:FC = ()=>{
     const {
         cursorPosition,
         setCursorPosition,
-        selectionDiv,
         beardie,
         setBeardie,
         squid,
@@ -58,7 +57,7 @@ const SelectMenu:FC = ()=>{
       }
     return (
         <div className="select-container" style={cursorPosition}>
-           <div className="selection" ref={selectionDiv}  ></div> 
+           <div className="selection"  ></div> 
             <div className="image-unit-select"
             style={{filter:beardie.filter, pointerEvents:beardie.pointerEvents}}
             onClick={(e)=>{

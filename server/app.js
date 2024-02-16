@@ -4,14 +4,14 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
+const mongoose = require('mongoose');
+
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
 const app = express();
 
 // Set up mongoose connection
-const mongoose = require('mongoose');
-
 mongoose.set('strictQuery', false);
 const mongoDB = process.env.MongoDB_Uri;
 

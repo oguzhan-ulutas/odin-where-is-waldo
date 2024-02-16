@@ -23,34 +23,30 @@ const LeaderBoard = ()=>{
     const rows = leaders.map((leader, index)=>{
    return createData(index+1, leader.name, leader.time)
   })
-    
-
-    // const sortedLeaders = leaders.sort((a, b)=>a.seconds-b.seconds)
-    console.log(rows)
-  
 
   return (
     <div className="leader-board">
+      <h1>Leader Board</h1>
        <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell>Rank</TableCell>
-            <TableCell align="right">Name</TableCell>
-            <TableCell align="right">Time</TableCell>
+            <TableCell align="left">Name</TableCell>
+            <TableCell align="left">Time</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
             <TableRow
               key={row._id}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              
             >
-              <TableCell component="th" scope="row">
+              <TableCell  >
                 {row.rank}
               </TableCell>
-              <TableCell align="right">{row.name}</TableCell>
-              <TableCell align="right">{row.time}</TableCell>
+              <TableCell align="left">{row.name}</TableCell>
+              <TableCell align="left">{row.time}</TableCell>
             </TableRow>
           ))}
         </TableBody>

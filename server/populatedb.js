@@ -7,10 +7,11 @@ console.log(
 // Get arguments passed on command line
 const userArgs = process.argv.slice(2);
 
-const mongoose = require('mongoose');
-const Player = require('./server/models/player');
+const Player = require('./models/player');
 
 const players = [];
+
+const mongoose = require('mongoose');
 
 mongoose.set('strictQuery', false);
 
@@ -41,7 +42,7 @@ const formatTime = (timeInSeconds) => {
 async function playerCreate(index, name, seconds) {
   const time = formatTime(seconds);
   const player = new Player({ name, seconds, time });
-  console.log(player);
+
   await player.save();
   players[index] = player;
   console.log(`Added player: ${name, seconds, time}`);

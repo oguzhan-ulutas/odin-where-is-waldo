@@ -22,7 +22,6 @@ export const Home:React.FC = () => {
    useEffect(()=>{
     fetch(baseUrl)
     .then((res) => {
-      console.log(res)
       if (res.status >= 400) {
         throw new Error("server error");
       }
@@ -30,6 +29,7 @@ export const Home:React.FC = () => {
     })
     .then((res)=>{
       console.log(res)
+      setLeaders(res.leaderBoard)
     })
    }, [])
   return (

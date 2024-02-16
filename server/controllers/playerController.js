@@ -3,7 +3,8 @@ const Player = require('../models/player');
 
 // Handle index route
 exports.index = asyncHandler(async (req, res, next) => {
-  console.log('helööööggg');
-  const helo = { helo: 'helo' };
-  res.json(helo);
+  // Get leader board from db
+  const leaderBoard = await Player.find({}).sort({ seconds: 1 });
+
+  res.json({ leaderBoard });
 });

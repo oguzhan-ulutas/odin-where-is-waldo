@@ -8,6 +8,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { AppContext } from '../AppContext';
 
+
 const WinPopUp = ()=>{
     const {
         seconds,
@@ -17,6 +18,8 @@ const WinPopUp = ()=>{
         setLeaders
     } = React.useContext(AppContext)
     const [open, setOpen] = React.useState(false);
+
+    
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -62,6 +65,7 @@ const WinPopUp = ()=>{
                 console.log("Fetch error in home", err)
               })
              handleClose();
+             window.location.reload()
           },
         }}
       >
@@ -69,6 +73,7 @@ const WinPopUp = ()=>{
         <DialogContent>
           <DialogContentText>
             To enter your score to leader board enter your name.
+            The game will restart after submit.
           </DialogContentText>
           <TextField
             autoFocus

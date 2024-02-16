@@ -25,7 +25,6 @@ const [win, setWin] = useState(false)
 
 // Set win on finding of all suspect
 useEffect(()=>{
-  console.log(score)
   if (
     score.beardie === true
     && score.squid === true

@@ -61,7 +61,10 @@ const WinPopUp = ()=>{
                 console.log("Fetch error in home", err)
               })
              handleClose();
-             window.location.reload()
+             setTimeout(()=>{
+                window.location.reload()
+             }, 2000)
+            
           },
         }}
       >

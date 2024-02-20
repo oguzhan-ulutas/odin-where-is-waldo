@@ -33,7 +33,7 @@ const SelectMenu:FC = ()=>{
 
       const checkLocation = (suspect)=>{
         const {name} = suspect
-        console.log(name)
+        
         if (
             cursorPosition.top <= suspect.top
             && cursorPosition.top >= suspect.bottom 
@@ -41,7 +41,7 @@ const SelectMenu:FC = ()=>{
             && cursorPosition.left <= suspect.right
         ){
             setScore({...score, [name]:true})
-            console.log(score)
+            
             if (name==="beardie"){
                 setBeardie({...beardie, filter:"grayScale(100%)", pointerEvents:"none"})
             } 

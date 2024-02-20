@@ -31,7 +31,7 @@ useEffect(()=>{
     && score.uni === true
   ){
     setWin(true)
-    console.log("win", win)
+    
   }
 },[ score])
 

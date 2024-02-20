@@ -34,7 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Allow front end to fetch
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://odin-where-is-waldo-5y4x8w2st-oguzhans-projects-73c626db.vercel.app/');
+  res.setHeader('Access-Control-Allow-Origin', 'https://odin-where-is-waldo.vercel.app/');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   res.setHeader('Access-Control-Allow-Credentials', 'true');

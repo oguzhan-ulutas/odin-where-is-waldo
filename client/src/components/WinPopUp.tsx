@@ -19,11 +19,6 @@ const WinPopUp = ()=>{
     } = React.useContext(AppContext)
     const [open, setOpen] = React.useState(false);
 
-    
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
 
   const handleClose = () => {
     setOpen(false);
@@ -95,6 +90,7 @@ const WinPopUp = ()=>{
             fullWidth
             variant="standard"
             label="Seconds"
+            
           />
           <TextField
           value={time}

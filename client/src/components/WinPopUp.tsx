@@ -55,6 +55,7 @@ const WinPopUp = ()=>{
                   }
                   return res.json();
             }). then((res)=>{
+                console.log(res.leaderBoard)
                 setLeaders(res.leaderBoard)
             }).catch((err)=>{
                 console.log("Fetch error in home", err)

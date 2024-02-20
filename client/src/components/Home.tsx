@@ -29,7 +29,6 @@ export const Home:React.FC = () => {
       return res.json();
     })
     .then((res)=>{
-      
       setLeaders(res.leaderBoard)
     })
     .catch((err)=>{

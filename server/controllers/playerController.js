@@ -16,6 +16,7 @@ exports.winPost = asyncHandler(async (req, res, next) => {
   // If winner has a name save it.
   if (newWinner.name !== '') {
     await newWinner.save();
+    console.log(newWinner);
   } else {
     return next();
   }

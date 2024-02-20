@@ -16,6 +16,7 @@ const app = express();
 // Set up mongoose connection
 mongoose.set('strictQuery', false);
 const mongoDB = process.env.MongoDB;
+const baseUrl = process.env.BaseUrl;
 
 main().catch((err) => console.log(err));
 async function main() {
@@ -34,7 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Allow front end to fetch
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://odin-where-is-waldo.vercel.app');
+  res.setHeader('Access-Control-Allow-Origin', `${baseUrl}`);
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   res.setHeader('Access-Control-Allow-Credentials', 'true');

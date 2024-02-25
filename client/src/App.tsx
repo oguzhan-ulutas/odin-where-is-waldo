@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import './App.css'
 
 import Router from './Router'
@@ -10,8 +10,10 @@ function App() {
     left: number;
 }>({top:-1000, left:0})
 
+const imgRef = useRef(null)
 
-// Add and subtract 35px of the suspects location
+
+// Add and subtract 35px of the suspects location to create a virtual square
 const [beardie, setBeardie ] = useState({name:"beardie", top:1149, bottom:1079, left:639, right:709, filter:"grayScale(0%)", pointerEvents:"auto"})
 const [squid, setSquid]= useState({ name:"squid", top:1578, bottom:1508, left:932, right:1002, filter:"grayScale(0%)", pointerEvents:"auto"})
 const [uni, setUni] = useState({name:"uni", top:1235, bottom:1165, left:351, right:421, filter:"grayScale(0%)", pointerEvents:"auto"})
@@ -57,7 +59,8 @@ useEffect(()=>{
       time,
       setTime,
       win,
-      setWin
+      setWin,
+      imgRef
       
      
     }} >

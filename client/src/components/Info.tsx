@@ -11,7 +11,8 @@ const Info:FC = ()=>{
     const {
         beardie,
         squid,
-        uni
+        uni,
+       
     } = useContext(AppContext)
     return(
         <div className="info">

@@ -47,3 +47,4 @@ Inside the frontend folder execute:
 ```sh
 npm run dev
 ```
+

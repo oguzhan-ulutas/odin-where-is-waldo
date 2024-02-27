@@ -3,7 +3,7 @@ import { AppContext } from "../AppContext";
 
 const Timer:FC = ()=>{
     
-  const {seconds, setSeconds, setTime, win} = useContext(AppContext)
+  const {seconds, setSeconds, time, win} = useContext(AppContext)
 
     useEffect(() => {
         // Update the timer every second
@@ -21,10 +21,10 @@ const Timer:FC = ()=>{
       const formatTime = (timeInSeconds: number): string => {
         const minutes = Math.floor(timeInSeconds / 60);
         const remainingSeconds = timeInSeconds % 60;
-        const time = `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`
-        setTime(time)
+        time.current = `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`
         
-        return time;
+        
+        return time.current;
       };
 
       return (

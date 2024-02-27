@@ -17,7 +17,6 @@ const Body:FC = ()=>{
     setCursorPosition({top:e.pageY - 50, left:e.pageX + 50})
     
   }
-  
 
     return(
         <>

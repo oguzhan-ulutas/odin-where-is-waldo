@@ -20,7 +20,7 @@ const [uni, setUni] = useState({name:"uni", top:1235, bottom:1165, left:351, rig
 
 const [score, setScore] = useState({beardie:false, squid:false, uni:false})
 const [seconds, setSeconds] = useState<number>(0)
-const [time, setTime] = useState("")
+const time = useRef("")
 const [leaders, setLeaders] = useState([])
 const baseUrl = import.meta.env.VITE_BASE_URL;
 const [win, setWin] = useState(false)
@@ -36,7 +36,6 @@ useEffect(()=>{
     
   }
 },[ score])
-
 
 
   return (
@@ -57,7 +56,6 @@ useEffect(()=>{
       setLeaders,
       baseUrl,
       time,
-      setTime,
       win,
       setWin,
       imgRef

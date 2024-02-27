@@ -1,4 +1,15 @@
 .baldies {
-    width: 1191px;
-    
+    width: 1191px;  
 } 
+
+.timer {
+    color: aliceblue;
+    font-size: 28px;
+    margin: 10px;
+   
+}
+
+.body-container {
+    display: flex;
+    justify-content: space-between;
+}

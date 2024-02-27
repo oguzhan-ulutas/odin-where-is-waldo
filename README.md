@@ -1,5 +1,6 @@
 # odin-where-is-waldo
 A photo tagging game
+<<<<<<< HEAD
 
 # [Live Preview](https://odin-where-is-waldo.vercel.app/)
 
@@ -48,3 +49,5 @@ Inside the frontend folder execute:
 npm run dev
 ```
 
+=======
+>>>>>>> parent of 3236788 (Update README.md)

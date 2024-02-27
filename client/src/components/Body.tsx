@@ -4,6 +4,7 @@ import baldies from "../assets/baldies.png"
 import SelectMenu from "./SelectMenu";
 import { AppContext } from "../AppContext";
 import "./Body.css"
+import Timer from "./Timer";
 
 const Body:FC = ()=>{
     const {
@@ -20,7 +21,11 @@ const Body:FC = ()=>{
 
     return(
         <>
-        <img className="baldies" src={baldies} alt="baldies" onClick={changeSelectMenuPosition} />
+        <div className="body-container">
+          <img className="baldies" src={baldies} alt="baldies" onClick={changeSelectMenuPosition} />
+          <div className="timer"> <Timer/> </div>
+        </div>
+        
         <SelectMenu/>
         </>
     )

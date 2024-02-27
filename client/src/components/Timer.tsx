@@ -28,7 +28,7 @@ const Timer:FC = ()=>{
       };
 
       return (
-        <div>
+        <div style={{ position: "sticky", top: "30px"}}>
           <h2>Timer: {formatTime(seconds)}</h2>
         </div>
       );

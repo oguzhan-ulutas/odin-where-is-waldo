@@ -33,7 +33,7 @@ const SelectMenu:FC = ()=>{
 
       const checkLocation = (suspect)=>{
         const {name} = suspect
-        console.log(cursorPosition, "check location")
+        
         if (
             cursorPosition.top <= suspect.top
             && cursorPosition.top >= suspect.bottom 

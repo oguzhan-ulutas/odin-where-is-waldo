@@ -15,7 +15,8 @@ const Body:FC = ()=>{
     } = useContext(AppContext)
    
   const changeSelectMenuPosition = (e)=>{  
-    setCursorPosition({top:e.pageY - 50, left:e.pageX + 50})
+    setCursorPosition({top:e.pageY , left:e.pageX })
+    console.log(e.pageY, e.pageX, cursorPosition)
     
   }
 

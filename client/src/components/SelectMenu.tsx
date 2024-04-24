@@ -33,7 +33,7 @@ const SelectMenu:FC = ()=>{
 
       const checkLocation = (suspect)=>{
         const {name} = suspect
-        
+        console.log(cursorPosition, "check location")
         if (
             cursorPosition.top <= suspect.top
             && cursorPosition.top >= suspect.bottom 
@@ -56,7 +56,7 @@ const SelectMenu:FC = ()=>{
         }
       }
     return (
-        <div className="select-container" style={cursorPosition}>
+        <div className="select-container" style={{top:cursorPosition.top - 50, left:cursorPosition.left +50}}>
            <div className="selection"  ></div> 
             <div className="image-unit-select"
             style={{filter:beardie.filter, pointerEvents:beardie.pointerEvents}}
